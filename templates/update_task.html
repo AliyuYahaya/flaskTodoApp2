@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Update Task</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <header>
+        <h1><a href="{{ url_for('home') }}">TODO.app</a></h1>
+    </header>
+    <div class="container">
+        <h1>Update Task</h1>
+        <form method="post">
+            <label for="description">Task Description:</label>
+            <input type="text" id="description" name="description" value="{{ task.description }}">
+            <label>
+                <input type="checkbox" name="is_completed" {% if task.is_completed %}checked{% endif %}>
+                Completed
+            </label>
+            <button type="submit">Update Task</button>
+        </form>
+        <a href="{{ url_for('view_tasks') }}">Back to Tasks</a>
+    </div>
+</body>
+</html>
